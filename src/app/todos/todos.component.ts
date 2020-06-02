@@ -8,15 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TodosComponent implements OnInit {
 
-  private loading: boolean = true;
-  private searchString: string = '';
+  public loading = true;
+  public searchString = '';
 
-  constructor(private todosService: TodosService) { }
+  constructor(public todosService: TodosService) { }
 
   ngOnInit() {
     this.todosService.fetchTodos().subscribe(() => {
       this.loading = false;
-    })
+    });
   }
 
   onChange(id: number) {
